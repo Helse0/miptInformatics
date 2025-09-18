@@ -8,14 +8,15 @@ with open("input.txt", "r") as f:
 	inp = f.readlines()
 
 inp = [i.replace("\n", "") for i in inp if i.replace("\n", "") != ""] #удаление лишних строк и символов перехода
-numb, act = inp[0].split(" "), inp[1].split(" ") #разделение символов и чисел на элементы массива
+numb, act = inp[0].split(" "), inp[1] #разделение символов и чисел на элементы массива
 
-executing_line = ""
-for i in range(len(act)): #соединяем поочерёёдно число и знак
-	executing_line += numb[i] + act[i]
+executing_line = numb[0]
+for i in range(len(numb)-1): #соединяем поочерёёдно число и знак
+	executing_line +=  act + numb[i+1]
 	
-executing_line += numb.pop()#осталось последнее число
-result = None if "import" in executing_line else eval(executing_line) #выполняем строку так, чтобы никто "случайно" не прописал 'import os\nshutil.rmtree("C:/")' или ещё чего
+print(executing_line)
+
+result = eval(executing_line) #выполняем строку
 
 with open("output.txt", "w+") as f:
 	f.write(str(result))
