@@ -34,14 +34,13 @@ with open("input.txt", "r") as f:
 	inp = f.readlines()
 
 inp = [i.replace("\n", "") for i in inp if i.replace("\n", "") != ""] #удаление лишних строк и символов перехода
-numbers, actions, syst = inp[0].split(" "), inp[1].split(" "), int(inp[2]) #разделение символов и чисел на элементы массива
+numbers, action, syst = inp[0].split(" "), inp[1], int(inp[2]) #разделение символов и чисел на элементы массива
 numbers = [str(to_ten(int(i), syst)) for i in numbers] # переводим все числа в десятичную систему
 
-executing_line = ""
-for i in range(len(actions)): #соединяем поочерёёдно число и знак
-	executing_line += numbers[i] + actions[i]
+executing_line = numbers[0]
+for i in range(len(numbers)-1): #соединяем поочерёёдно число и знак
+	executing_line += action + numbers[i+1]
 
-executing_line += numbers.pop()#осталось последнее число
 result = None if "import" in executing_line else eval(executing_line) #выполняем строку так, чтобы никто "случайно" не прописал 'import os\nshutil.rmtree("C:/")' или ещё чегоresult = to_nec(result, syst) #ответ в указанной системе
 
 result = to_nec(result, syst) #ответ в указанной системе
