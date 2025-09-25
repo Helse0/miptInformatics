@@ -11,7 +11,7 @@ def mirrored(s): #ничего не проверяет, просто возвр�
         if char in mirror_dict:
             mirrored_chars.append(mirror_dict[char])
         else:
-            return
+            return []
     
     mirrored_str = ''.join(mirrored_chars)
     
