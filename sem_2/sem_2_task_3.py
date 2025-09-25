@@ -21,7 +21,6 @@ def check(s):
     palindrome = (s == s[::-1])
     mirror =  (mirrored(s) == s[::-1])
     
-    print(type(palindrome), type(mirror))
     if palindrome and mirror:
         return f"{s} is a mirrored palindrome."
     elif palindrome:
