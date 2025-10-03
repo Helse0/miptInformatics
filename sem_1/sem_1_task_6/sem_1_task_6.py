@@ -41,7 +41,7 @@ executing_line = numbers[0]
 for i in range(len(numbers)-1): #соединяем поочерёёдно число и знак
 	executing_line += action + numbers[i+1]
 
-result = None if "import" in executing_line else eval(executing_line) #выполняем строку так, чтобы никто "случайно" не прописал 'import os\nshutil.rmtree("C:/")' или ещё чегоresult = to_nec(result, syst) #ответ в указанной системе
+result = eval(executing_line)
 
 result = to_nec(result, syst) #ответ в указанной системе
 
