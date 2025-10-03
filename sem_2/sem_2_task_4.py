@@ -1,8 +1,19 @@
-'''
-Упражнение 4. Перестановка
+''' Упражнение 4. Перестановка
 Переставьте соседние элементы в списке. Задача решается в три строки.
 '''
 
-a = input().split(" ")
-dev_2 = [[a[i] if i % 2 == 0 else None for i in range(len(a))], [a[i] if i % 2 == 1 else None for i in range(len(a))]]
-print([[str(dev_2[1][i])+str(dev_2[0][i]) for i in range(len(dev_2[0]))]])
+''' Длинная версия:
+i = input().split()
+new = []
+for j in range(len(i) - (len(i) % 2)):
+	if j % 2 == 0:
+		new.append(i[j+1])
+	else:
+		new.append(i[j-1])
+		
+print(" ".join(new if len(i) % 2 == 0 else new + [i[len(i) - 1]]))
+'''
+
+i = input().split()
+new = [i[j+1] if j % 2 == 0 else i[j-1] for j in range(len(i) - (len(i) % 2))]
+print(" ".join(new if len(i) % 2 == 0 else new + [i[len(i) - 1]]))

@@ -8,8 +8,6 @@
 номер оставшихся карточек.
 Выход. Вывести номер потерянной карточки.
 '''
-import math
-
 inp = sorted([int(input()) for i in range(int(input())-1)])
 
 last = 0
